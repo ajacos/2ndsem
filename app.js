@@ -140,8 +140,11 @@ function getNewQuestion() {
         questionCounter++;
         
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-        currentQuestion = availableQuestions[questionIndex];
+        currentQuestion = JSON.parse(JSON.stringify(availableQuestions[questionIndex])); // Deep clone the question
         availableQuestions.splice(questionIndex, 1);
+        
+        // Scramble the choices while preserving the correct answer
+        scrambleChoices(currentQuestion);
         
         // Add to history
         quizHistory.push({
@@ -185,6 +188,28 @@ function getNewQuestion() {
     }
     
     acceptingAnswers = !quizHistory[currentQuestionIndex].isAnswered;
+}
+
+// Function to scramble choices while keeping track of the correct answer
+function scrambleChoices(questionObj) {
+    // Save original correct answer
+    const correctOptionText = questionObj.options[questionObj.answer];
+    const originalAnswer = questionObj.answer;
+    
+    // Shuffle the options array
+    const shuffledOptions = [...questionObj.options].sort(() => Math.random() - 0.5);
+    
+    // Update the question object with shuffled options
+    questionObj.options = shuffledOptions;
+    
+    // Find the new index of the correct answer and update answer property
+    questionObj.answer = shuffledOptions.findIndex(option => option === correctOptionText);
+    
+    // Debug: Log the scrambling results
+    console.log('Question scrambled:');
+    console.log('Original correct answer position:', originalAnswer);
+    console.log('New correct answer position:', questionObj.answer);
+    console.log('Shuffled options:', shuffledOptions);
 }
 
 // Get previous question

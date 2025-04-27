@@ -1131,4 +1131,39 @@ body {
 
 .dark-mode .reviewer-btn:hover {
     background-color: var(--secondary-color);
+}
+
+/* Fix for dark mode correct and incorrect answers */
+.dark-mode .correct {
+    background-color: rgba(16, 185, 129, 0.9) !important;
+}
+
+.dark-mode .incorrect {
+    background-color: rgba(239, 68, 68, 0.9) !important;
+}
+
+.dark-mode .correct .choice-text,
+.dark-mode .correct .choice-prefix,
+.dark-mode .incorrect .choice-text,
+.dark-mode .incorrect .choice-prefix {
+    color: white !important;
+}
+
+.dark-mode .selected {
+    border: 2px solid var(--primary-light) !important;
+    background-color: rgba(129, 140, 248, 0.3) !important;
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.3) !important;
+}
+
+/* Ensure the feedback text is visible in dark mode */
+.dark-mode #feedback-text {
+    color: var(--text-color) !important;
+}
+
+.dark-mode #feedback-text span[style*="--correct-color"] {
+    color: #34d399 !important;
+}
+
+.dark-mode #feedback-text span[style*="--incorrect-color"] {
+    color: #f87171 !important;
 } 
