@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load questions first -->
+    <script src="questions.js"></script>
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    <div class="container">
+        <!-- Home Screen -->
+        <div id="home" class="flex-center flex-column">
+            <h1 class="title">2nd Sem Finals</h1>
+            <p class="subtitle">Test your disaster readiness knowledge</p>
+            <div class="subject-buttons">
+                <button id="subject-drrr" class="btn"><i class="fas fa-mountain"></i> DRRR</button>
+                <a href="https://docs.google.com/document/d/1CTTs3DLhB8xqOQhwxuTaue6DZ3MAzqNCLTbpGAitY-0/edit?usp=sharing" target="_blank" class="reviewer-link">
+                    <button class="btn reviewer-btn"><i class="fas fa-book"></i> 2nd Sem Reviewer</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz" class="flex-center flex-column hidden">
+            <div id="quiz-header">
+                <h2 id="subject-title">Subject</h2>
+                <div id="hud">
+                    <div class="hud-item">
+                        <p class="hud-prefix">
+                            Question
+                        </p>
+                        <h1 class="hud-main-text" id="questionCounter">1/10</h1>
+                    </div>
+                    <div class="hud-item">
+                        <p class="hud-prefix">
+                            Score
+                        </p>
+                        <h1 class="hud-main-text" id="score">0</h1>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <button id="home-btn" class="home-btn">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+            <div class="question-container">
+                <h2 id="question">What is the answer to this question?</h2>
+                <div class="choice-container">
+                    <p class="choice-prefix">A</p>
+                    <p class="choice-text" data-number="0">Choice 1</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">B</p>
+                    <p class="choice-text" data-number="1">Choice 2</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">C</p>
+                    <p class="choice-text" data-number="2">Choice 3</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">D</p>
+                    <p class="choice-text" data-number="3">Choice 4</p>
+                </div>
+                
+                <!-- Answer Feedback Area -->
+                <div id="answer-feedback" class="answer-feedback hidden">
+                    <div class="feedback-content">
+                        <p id="feedback-text">This is the correct answer explanation.</p>
+                    </div>
+                </div>
+                
+                <!-- Submit Button and Next Button -->
+                <div class="button-container">
+                    <button id="prev-btn" class="action-btn prev-btn hidden">
+                        <i class="fas fa-arrow-left"></i> Previous Question
+                    </button>
+                    <button id="submit-btn" class="action-btn submit-btn" disabled>
+                        <i class="fas fa-check"></i> Submit Answer
+                    </button>
+                    <button id="next-btn" class="action-btn next-btn hidden">
+                        <i class="fas fa-arrow-right"></i> Next Question
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Screen with Results -->
+        <div id="end" class="flex-center flex-column hidden">
+            <h1 class="title">Quiz Complete!</h1>
+            <div class="result-summary">
+                <h2>Your Score: <span id="final-score">0</span></h2>
+                <div class="score-details">
+                    <p><i class="fas fa-check-circle"></i> Correct: <span id="correct-count">0</span></p>
+                    <p><i class="fas fa-question-circle"></i> Total: <span id="total-count">0</span></p>
+                </div>
+            </div>
+            <h3 class="results-heading">Detailed Results</h3>
+            <div class="results-container" id="results-container">
+                <!-- Results will be populated here -->
+            </div>
+            <div class="end-buttons">
+                <button id="play-again" class="btn"><i class="fas fa-redo"></i> Play Again</button>
+                <button id="go-home" class="btn"><i class="fas fa-home"></i> Go Home</button>
+            </div>
+        </div>
+    </div>
+    <!-- Load app.js after the HTML is fully parsed -->
+    <script src="app.js"></script>
+</body>
+</html> 
