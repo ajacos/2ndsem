@@ -119,13 +119,23 @@ body {
     color: var(--text-light);
 }
 
+.subject-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 42rem;
+    justify-items: center;
+}
+
 .btn {
     font-size: 1rem;
     padding: 0.9rem 0;
-    width: 20rem;
+    width: 100%;
+    max-width: 20rem;
     text-align: center;
     border: none;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     text-decoration: none;
     color: var(--white);
     background-color: var(--primary-color);
@@ -167,13 +177,6 @@ body {
 
 .btn i {
     margin-right: 0.5rem;
-}
-
-.subject-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
 }
 
 /* Quiz Styles */
@@ -749,7 +752,16 @@ body {
     }
     
     .btn {
-        width: 18rem;
+        width: 100%;
+    }
+    
+    .subject-buttons {
+        grid-template-columns: 1fr;
+        max-width: 20rem;
+    }
+    
+    .reviewer-link {
+        grid-column: 1;
     }
     
     .choice-container {
@@ -757,8 +769,8 @@ body {
     }
     
     #quiz, #end {
-        max-width: 95%;
         padding: 1rem;
+        max-width: 100%;
     }
     
     .results-container {
@@ -1082,15 +1094,16 @@ body {
 }
 
 .reviewer-link {
-    text-decoration: none;
+    grid-column: span 2;
     width: 100%;
     display: flex;
     justify-content: center;
+    text-decoration: none;
 }
 
 .reviewer-btn {
     background-color: var(--secondary-color);
-    color: white;
+    max-width: 42rem;
 }
 
 .reviewer-btn:hover {

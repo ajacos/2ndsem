@@ -71,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function() {
         startGame('UCSP');
     });
     
+    // PE Button
+    document.getElementById('subject-pe').addEventListener('click', function() {
+        startGame('PE');
+    });
+    
     // Play again button
     playAgainButton.addEventListener('click', () => {
         startGame(currentSubject);
