@@ -818,6 +818,21 @@ const drrrQuestions = [
   }
 ];
 
+// Register that these questions are loaded
+if (typeof window.loadedSubjects === 'undefined') {
+  window.loadedSubjects = {};
+}
+window.loadedSubjects['DRRR'] = drrrQuestions;
+console.log('DRRR questions registered:', drrrQuestions.length);
+
+// Dispatch a custom event to notify app
+document.dispatchEvent(new CustomEvent('subjectLoaded', {
+  detail: {
+    subject: 'DRRR',
+    count: drrrQuestions.length
+  }
+}));
+
 // Example placeholder for Math and Science questions
 const mathQuestions = [];
 const scienceQuestions = []; 

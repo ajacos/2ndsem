@@ -38,25 +38,78 @@ let selectedAnswer = null;
 let quizHistory = []; // Array to store question history for navigation
 let currentQuestionIndex = -1; // Current position in the quiz history
 let darkMode = localStorage.getItem('darkMode') === 'enabled';
+let dataLoaded = false; // Flag to track if quiz data is loaded
 
 // Constants
 const CORRECT_BONUS = 10;
 const ANIMATION_SPEED = 500; // ms
 
+// Variables for tracking loaded subjects
+window.loadedSubjects = window.loadedSubjects || {};
+
 // Check if questions are loaded properly when the DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded');
-    console.log('DRRR Questions defined:', typeof drrrQuestions !== 'undefined');
-    console.log('DRRR Questions length:', typeof drrrQuestions !== 'undefined' ? drrrQuestions.length : 'Not defined');
-    console.log('Math Questions defined:', typeof mathQuestions !== 'undefined');
-    console.log('Math Questions length:', typeof mathQuestions !== 'undefined' ? mathQuestions.length : 'Not defined');
-    console.log('Science Questions defined:', typeof scienceQuestions !== 'undefined');
-    console.log('Science Questions length:', typeof scienceQuestions !== 'undefined' ? scienceQuestions.length : 'Not defined');
+    
+    // DRRR Button
+    document.getElementById('subject-drrr').addEventListener('click', function() {
+        startGame('DRRR');
+    });
+    
+    // Reading & Writing Button
+    document.getElementById('subject-reading-writing').addEventListener('click', function() {
+        startGame('Reading & Writing');
+    });
+    
+    // Play again button
+    playAgainButton.addEventListener('click', () => {
+        startGame(currentSubject);
+    });
+    
+    // Go home button
+    goHomeButton.addEventListener('click', () => {
+        endElement.classList.add('hidden');
+        homeElement.classList.remove('hidden');
+    });
+    
+    // Home button event listener for in-quiz navigation
+    homeBtn.addEventListener('click', () => {
+        // Show confirmation dialog
+        if (confirm('Are you sure you want to exit the quiz? Your progress will be lost.')) {
+            // Navigate to home
+            quizElement.classList.add('hidden');
+            endElement.classList.add('hidden');
+            homeElement.classList.remove('hidden');
+        }
+    });
     
     // Apply dark mode if enabled
     if (darkMode) {
         enableDarkMode();
     }
+    
+    // Register buttons but wait for data to be loaded
+    const setupSubjectButtons = () => {
+        // Add event listeners for subject buttons
+        console.log('Subject buttons initialized');
+    };
+    
+    // Listen for the data loaded event from quizData.js
+    document.addEventListener('quizDataLoaded', function(e) {
+        console.log('Quiz data loaded event received. Subjects:', e.detail.subjects);
+        dataLoaded = true;
+        
+        // Now we can safely set up the subject buttons
+        setupSubjectButtons();
+    });
+    
+    // Set up the buttons anyway after a timeout, in case the event doesn't fire
+    setTimeout(() => {
+        if (!dataLoaded) {
+            console.warn('Quiz data not loaded after timeout, initializing buttons anyway');
+            setupSubjectButtons();
+        }
+    }, 1000);
 });
 
 // Dark mode functions
@@ -85,28 +138,38 @@ themeToggleBtn.addEventListener('click', () => {
 
 // Start Game
 function startGame(subject) {
-    currentSubject = 'DRRR'; // Always default to DRRR
+    console.log('Starting game for subject:', subject);
+    currentSubject = subject;
     subjectTitle.innerText = currentSubject;
-    questions = getQuestionsForSubject(currentSubject);
-    totalQuestions = questions.length;
-    score = 0;
-    questionCounter = 0;
-    userResults = []; // Reset results
-    quizHistory = []; // Reset question history
-    currentQuestionIndex = -1; // Reset current index
     
-    // Shuffle questions
-    availableQuestions = [...questions].sort(() => Math.random() - 0.5);
-    
-    // Show quiz screen
-    homeElement.classList.add('hidden');
-    quizElement.classList.remove('hidden');
-    endElement.classList.add('hidden');
-    
-    // Reset progress bar
-    updateProgressBar(0);
-    
-    getNewQuestion();
+    // Get questions from loadedSubjects object
+    if (window.loadedSubjects && window.loadedSubjects[subject]) {
+        questions = [...window.loadedSubjects[subject]];
+        console.log(`Using questions for ${subject}, count:`, questions.length);
+        
+        // Continue with the game
+        totalQuestions = questions.length;
+        score = 0;
+        questionCounter = 0;
+        userResults = [];
+        quizHistory = [];
+        currentQuestionIndex = -1;
+        
+        // Create a copy of the questions array for the available questions
+        availableQuestions = [...questions].sort(() => Math.random() - 0.5);
+        console.log('Available questions after shuffle:', availableQuestions.length);
+        
+        homeElement.classList.add('hidden');
+        quizElement.classList.remove('hidden');
+        endElement.classList.add('hidden');
+        
+        updateProgressBar(0);
+        
+        getNewQuestion();
+    } else {
+        console.error(`No questions found for ${subject}`);
+        alert(`No questions available for ${subject}. Please try again later.`);
+    }
 }
 
 // Update progress bar with animation
@@ -117,7 +180,10 @@ function updateProgressBar(value) {
 
 // Get a new question
 function getNewQuestion() {
+    console.log('getNewQuestion called, availableQuestions.length:', availableQuestions.length);
+    
     if (availableQuestions.length === 0) {
+        console.log('No available questions, showing results');
         // Save score to local storage
         localStorage.setItem('mostRecentScore', score);
         
@@ -140,6 +206,7 @@ function getNewQuestion() {
         questionCounter++;
         
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+        console.log('Selected question index:', questionIndex, 'from', availableQuestions.length, 'questions');
         currentQuestion = JSON.parse(JSON.stringify(availableQuestions[questionIndex])); // Deep clone the question
         availableQuestions.splice(questionIndex, 1);
         
@@ -493,41 +560,24 @@ function showResults() {
 
 // Function to get questions based on subject
 function getQuestionsForSubject(subject) {
-    console.log('Getting questions for DRRR');
-    return typeof drrrQuestions !== 'undefined' ? drrrQuestions : [];
-}
-
-// Subject button event listeners
-subjectButtons.forEach(button => {
-    button.addEventListener('click', e => {
-        // Use the button's text content directly
-        const subject = button.textContent.replace(/^\s*[\w\s]+\s/, '').trim();
-        console.log("Selected subject:", subject);
-        startGame(subject);
-    });
-});
-
-// Play again button
-playAgainButton.addEventListener('click', () => {
-    startGame(currentSubject);
-});
-
-// Go home button
-goHomeButton.addEventListener('click', () => {
-    endElement.classList.add('hidden');
-    homeElement.classList.remove('hidden');
-});
-
-// Home button event listener for in-quiz navigation
-homeBtn.addEventListener('click', () => {
-    // Show confirmation dialog
-    if (confirm('Are you sure you want to exit the quiz? Your progress will be lost.')) {
-        // Navigate to home
-        quizElement.classList.add('hidden');
-        endElement.classList.add('hidden');
-        homeElement.classList.remove('hidden');
+    console.log('getQuestionsForSubject called for:', subject);
+    
+    // Try to get questions from the centralized quizData object first
+    if (window.quizData && window.quizData[subject]) {
+        console.log(`Using centralized quizData for ${subject}, count:`, window.quizData[subject].length);
+        return window.quizData[subject];
     }
-});
+    
+    // Fallback to direct access
+    if (subject === 'DRRR' && typeof drrrQuestions !== 'undefined') {
+        return drrrQuestions;
+    } else if (subject === 'Reading & Writing' && typeof readingWritingQuestions !== 'undefined') {
+        return readingWritingQuestions;
+    }
+    
+    console.error('No questions found for subject:', subject);
+    return [];
+}
 
 // Add an event listener to show warning before page refresh or close
 window.addEventListener('beforeunload', function(e) {

@@ -9,10 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Load questions first -->
-    <script src="questions.js"></script>
 </head>
 <body>
+    <!-- Popup Alert -->
+    <div id="popup-alert" class="popup-alert">
+        <div class="popup-content">
+            <i class="fas fa-info-circle"></i>
+            <span>First day subjects will be added later</span>
+            <button id="close-popup" class="close-popup">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
     <div class="theme-toggle">
         <button id="theme-toggle-btn" aria-label="Toggle Dark Mode">
             <i class="fas fa-moon"></i>
@@ -22,9 +31,11 @@
         <!-- Home Screen -->
         <div id="home" class="flex-center flex-column">
             <h1 class="title">2nd Sem Finals</h1>
-            <p class="subtitle">Goodluck! If theres a problem just message :) - Aaron & Rb</p>
+            <p class="subtitle">Goodluck! If theres a problem just message :) <br> - Aaron & Rb</p>
+            
             <div class="subject-buttons">
                 <button id="subject-drrr" class="btn"><i class="fas fa-mountain"></i> DRRR</button>
+                <button id="subject-reading-writing" class="btn"><i class="fas fa-book-reader"></i> Reading & Writing</button>
                 <a href="https://docs.google.com/document/d/1CTTs3DLhB8xqOQhwxuTaue6DZ3MAzqNCLTbpGAitY-0/edit?usp=sharing" target="_blank" class="reviewer-link">
                     <button class="btn reviewer-btn"><i class="fas fa-book"></i> 2nd Sem Reviewer</button>
                 </a>
@@ -117,7 +128,31 @@
             </div>
         </div>
     </div>
-    <!-- Load app.js after the HTML is fully parsed -->
+    
+    <!-- Load scripts in proper order -->
+    <script src="questions.js"></script>
+    <script src="readingWritingQuestions.js"></script>
     <script src="app.js"></script>
+    
+    <!-- Script for handling popup alert -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('popup-alert');
+            const closeBtn = document.getElementById('close-popup');
+            
+            // Make sure popup is visible
+            popup.classList.remove('hidden');
+            
+            // Close popup when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                popup.classList.add('hidden');
+            });
+            
+            // Auto-hide popup after 7 seconds (longer time to ensure visibility)
+            setTimeout(function() {
+                popup.classList.add('hidden');
+            }, 7000);
+        });
+    </script>
 </body>
 </html> 
