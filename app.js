@@ -66,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
         startGame('Filipino');
     });
     
+    // UCSP Button
+    document.getElementById('subject-ucsp').addEventListener('click', function() {
+        startGame('UCSP');
+    });
+    
     // Play again button
     playAgainButton.addEventListener('click', () => {
         startGame(currentSubject);
