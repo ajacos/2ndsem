@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
         startGame('Reading & Writing');
     });
     
+    // Filipino Button
+    document.getElementById('subject-filipino').addEventListener('click', function() {
+        startGame('Filipino');
+    });
+    
     // Play again button
     playAgainButton.addEventListener('click', () => {
         startGame(currentSubject);
