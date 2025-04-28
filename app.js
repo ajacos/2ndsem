@@ -438,6 +438,11 @@ function showResults() {
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         
+        // Add dark mode class if dark mode is enabled
+        if (darkMode) {
+            resultItem.classList.add('dark-mode-result');
+        }
+        
         // Add question number and text
         const questionNumber = document.createElement('div');
         questionNumber.classList.add('result-question');

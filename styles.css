@@ -35,7 +35,7 @@
     --secondary-dark: #10b981;
     --neutral-color: #1f2937;
     --neutral-dark: #111827;
-    --dark-color: #f9fafb;
+    --dark-color: #162535;
     --light-color: #1f2937;
     --text-color: #e5e7eb;
     --text-light: #9ca3af;
@@ -1166,4 +1166,17 @@ body {
 
 .dark-mode #feedback-text span[style*="--incorrect-color"] {
     color: #f87171 !important;
+}
+
+/* Fix for result item text color in dark mode */
+.dark-mode .result-question {
+    color: var(--text-color) !important;
+}
+
+.dark-mode .result-answers {
+    color: var(--text-light);
+}
+
+.dark-mode .result-answers strong {
+    color: var(--text-color);
 } 
