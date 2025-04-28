@@ -527,4 +527,23 @@ homeBtn.addEventListener('click', () => {
         endElement.classList.add('hidden');
         homeElement.classList.remove('hidden');
     }
+});
+
+// Add an event listener to show warning before page refresh or close
+window.addEventListener('beforeunload', function(e) {
+    // Only show warning if quiz is active (not on home or end screen)
+    if (!homeElement.classList.contains('hidden') && quizElement.classList.contains('hidden')) {
+        // User is on home screen, don't show warning
+        return undefined;
+    }
+    
+    if (!endElement.classList.contains('hidden')) {
+        // User is on results screen, don't show warning
+        return undefined;
+    }
+    
+    // User is in the middle of a quiz, show warning
+    const warningMessage = 'You are in the middle of a quiz. If you leave, your progress will be lost.';
+    e.returnValue = warningMessage; // Standard for most browsers
+    return warningMessage; // For some older browsers
 }); 
