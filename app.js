@@ -22,11 +22,13 @@ const prevButton = document.getElementById('prev-btn');
 const answerFeedback = document.getElementById('answer-feedback');
 const feedbackText = document.getElementById('feedback-text');
 const themeToggleBtn = document.getElementById('theme-toggle-btn');
-// Add UCsp, PE, 21st Lit, and Gen Bio button variables
+// Add UCsp, PE, 21st Lit, Gen Bio, Arabic, and Entrepreneurship button variables
 const ucspBtn = document.getElementById('subject-ucsp');
 const peBtn = document.getElementById('subject-pe');
 const litBtn = document.getElementById('subject-21lit');
 const genBioBtn = document.getElementById('subject-genbio');
+const arabicBtn = document.getElementById('subject-arabic');
+const entrepreneurshipBtn = document.getElementById('subject-entrepreneurship');
 
 // Game variables
 let currentQuestion = {};
@@ -92,6 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Loaded Gen Bio questions:', window.loadedSubjects['Gen Bio'].length);
     }
     
+    if (typeof arabicQuestions !== 'undefined') {
+        window.loadedSubjects['Arabic'] = normalizeQuestionFormat(arabicQuestions);
+        console.log('Loaded Arabic questions:', window.loadedSubjects['Arabic'].length);
+    }
+    
+    if (typeof entrepreneurshipQuestions !== 'undefined') {
+        window.loadedSubjects['Entrepreneurship'] = normalizeQuestionFormat(entrepreneurshipQuestions);
+        console.log('Loaded Entrepreneurship questions:', window.loadedSubjects['Entrepreneurship'].length);
+    }
+    
     // DRRR Button
     document.getElementById('subject-drrr').addEventListener('click', function() {
         startGame('DRRR');
@@ -125,6 +137,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gen Bio Button
     genBioBtn.addEventListener('click', function() {
         startGame('Gen Bio');
+    });
+    
+    // Arabic Button
+    arabicBtn.addEventListener('click', function() {
+        startGame('Arabic');
+    });
+    
+    // Entrepreneurship Button
+    entrepreneurshipBtn.addEventListener('click', function() {
+        startGame('Entrepreneurship');
     });
     
     // Play again button
@@ -634,11 +656,31 @@ function getQuestionsForSubject(subject) {
         return window.quizData[subject];
     }
     
+    // Try to get questions from loaded subjects
+    if (window.loadedSubjects && window.loadedSubjects[subject]) {
+        console.log(`Using loaded subjects for ${subject}, count:`, window.loadedSubjects[subject].length);
+        return window.loadedSubjects[subject];
+    }
+    
     // Fallback to direct access
     if (subject === 'DRRR' && typeof drrrQuestions !== 'undefined') {
         return drrrQuestions;
     } else if (subject === 'Reading & Writing' && typeof readingWritingQuestions !== 'undefined') {
         return readingWritingQuestions;
+    } else if (subject === 'Filipino' && typeof filipinoQuestions !== 'undefined') {
+        return filipinoQuestions;
+    } else if (subject === 'UCSP' && typeof ucspQuestions !== 'undefined') {
+        return ucspQuestions;
+    } else if (subject === 'PE' && typeof peQuestions !== 'undefined') {
+        return peQuestions;
+    } else if (subject === '21st Century Literature' && typeof litQuestions !== 'undefined') {
+        return litQuestions;
+    } else if (subject === 'Gen Bio' && typeof genBioQuestions !== 'undefined') {
+        return genBioQuestions;
+    } else if (subject === 'Arabic' && typeof arabicQuestions !== 'undefined') {
+        return arabicQuestions;
+    } else if (subject === 'Entrepreneurship' && typeof entrepreneurshipQuestions !== 'undefined') {
+        return entrepreneurshipQuestions;
     }
     
     console.error('No questions found for subject:', subject);

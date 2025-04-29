@@ -6,10 +6,10 @@ const genBioQuestions = [
     "difficulty": "easy",
     "answer": 1,
     "options": [
-      "Cell Growth",
+      "Cellular Growth",
       "Cell Reproduction",
-      "Cell Replacement",
-      "Asexual Reproduction"
+      "Tissue Replacement",
+      "Asexual Splitting"
     ]
   },
   {
@@ -20,8 +20,8 @@ const genBioQuestions = [
     "options": [
       "Preexisting cells",
       "Spontaneous generation",
-      "Gamete fusion",
-      "Nutrient absorption"
+      "Nutrient synthesis",
+      "Environmental factors"
     ]
   },
   {
@@ -42,10 +42,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 2,
     "options": [
-      "Every 2 days",
-      "Every week",
-      "Every 2 weeks",
-      "Every month"
+      "Roughly every 2 days",
+      "Approximately weekly",
+      "About every 2 weeks",
+      "Nearly once a month"
     ]
   },
   {
@@ -54,10 +54,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "Asexual uses two parents, Sexual uses one.",
-      "Asexual uses one parent, Sexual uses two.",
-      "Both use only one parent.",
-      "Both require gametes."
+      "Asexual involves two parents, Sexual involves one.",
+      "Asexual involves one parent, Sexual involves two.",
+      "Both typically involve only a single parent organism.",
+      "Both processes always require specialized gametes."
     ]
   },
   {
@@ -66,10 +66,10 @@ const genBioQuestions = [
     "difficulty": "easy",
     "answer": 0,
     "options": [
-      "Identical to the single parent",
-      "A mix of two parents",
-      "Different from the parent",
-      "Similar but not identical"
+      "Identical to the parent",
+      "A combination of parents",
+      "Significantly different",
+      "Similar but varied"
     ]
   },
   {
@@ -78,10 +78,10 @@ const genBioQuestions = [
     "difficulty": "hard",
     "answer": 2,
     "options": [
-      "It involves more complex DNA.",
-      "It requires gamete formation.",
-      "Lack of a nucleus and less complex DNA structure.",
-      "It occurs only in multicellular organisms."
+      "It utilizes more complex DNA structures.",
+      "Gamete formation slows down the process.",
+      "Simpler structure (e.g., no nucleus, less DNA).",
+      "It primarily occurs in large multicellular forms."
     ]
   },
   {
@@ -114,10 +114,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "Fragmentation",
-      "Budding",
-      "Sporulation",
-      "Vegetative Reproduction"
+      "Fragmentation process",
+      "Budding mechanism",
+      "Spore formation",
+      "Vegetative growth"
     ]
   },
   {
@@ -162,10 +162,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "Reproduction using spores.",
-      "A female producing an embryo without sperm fertilization.",
-      "Regrowing a lost body part.",
-      "Splitting into two identical cells."
+      "Organism reproduction using spores.",
+      "Embryo development without sperm fertilization.",
+      "Regrowth of a detached body part.",
+      "Cellular division into identical halves."
     ]
   },
   {
@@ -174,8 +174,8 @@ const genBioQuestions = [
     "difficulty": "easy",
     "answer": 0,
     "options": [
-      "DNA (Deoxyribonucleic Acid)",
-      "RNA (Ribonucleic Acid)",
+      "DNA",
+      "RNA",
       "Protein",
       "Chromatin"
     ]
@@ -205,31 +205,31 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "What term describes the number of chromosomes in a somatic cell (2n)?",
+    "question": "What term describes the chromosome number in a somatic cell (2n)?",
     "type": "terminology",
     "difficulty": "easy",
     "answer": 0,
     "options": [
-      "Diploid Number",
-      "Haploid Number",
-      "Gamete Number",
-      "Autosome Number"
+      "Diploid",
+      "Haploid",
+      "Gametic",
+      "Autosomal"
     ]
   },
   {
-    "question": "What term describes the number of chromosomes in a gamete (n)?",
+    "question": "What term describes the chromosome number in a gamete (n)?",
     "type": "terminology",
     "difficulty": "easy",
     "answer": 1,
     "options": [
-      "Diploid Number",
-      "Haploid Number",
-      "Somatic Number",
-      "Chromosome Pair"
+      "Diploid",
+      "Haploid",
+      "Somatic",
+      "Paired"
     ]
   },
   {
-    "question": "How many pairs of autosomes (body chromosomes) do humans have?",
+    "question": "How many pairs of autosomes (non-sex chromosomes) do humans have?",
     "type": "fact",
     "difficulty": "easy",
     "answer": 1,
@@ -258,10 +258,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 0,
     "options": [
-      "To prevent entanglement and ensure proper distribution.",
-      "To make DNA replication easier.",
-      "To allow gene expression.",
-      "To protect the DNA from damage."
+      "To prevent tangling/aid distribution.",
+      "To facilitate DNA replication.",
+      "To allow specific gene expression.",
+      "To shield DNA from external damage."
     ]
   },
   {
@@ -270,10 +270,10 @@ const genBioQuestions = [
     "difficulty": "easy",
     "answer": 3,
     "options": [
-      "Sex cells (sperm and egg)",
-      "Bacterial cells",
-      "Cells undergoing meiosis",
-      "Body cells other than sperm and egg cells"
+      "Reproductive cells (sperm/egg)",
+      "Single-celled bacterial forms",
+      "Cells currently undergoing meiosis",
+      "Non-reproductive body cells"
     ]
   },
   {
@@ -282,10 +282,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "A duplicated chromosome.",
-      "A complex of loose DNA, proteins, and RNA.",
-      "The protein core DNA wraps around.",
-      "The end structure of a chromosome."
+      "A fully duplicated chromosome.",
+      "Complex of DNA, proteins, RNA.",
+      "The core protein DNA winds on.",
+      "The protective end of a chromosome."
     ]
   },
   {
@@ -301,19 +301,19 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "What are identical copies of a chromosome formed during DNA replication and joined at a centromere called?",
+    "question": "What are identical copies of a chromosome joined at a centromere called?",
     "type": "terminology",
     "difficulty": "medium",
     "answer": 0,
     "options": [
       "Sister Chromatids",
-      "Homologous Chromosomes",
+      "Homologous Pairs",
       "Daughter Chromosomes",
-      "Parent Chromosomes"
+      "Parental Strands"
     ]
   },
   {
-    "question": "What is the region of a condensed, pinched chromosome where sister chromatids attach?",
+    "question": "What is the constricted region where sister chromatids attach?",
     "type": "terminology",
     "difficulty": "easy",
     "answer": 1,
@@ -321,19 +321,19 @@ const genBioQuestions = [
       "Telomere",
       "Centromere",
       "Kinetochore",
-      "Histone"
+      "Histone core"
     ]
   },
   {
-    "question": "What is the protein structure located at the centromere that attaches to spindle fibers?",
+    "question": "What is the protein structure at the centromere that attaches to spindle fibers?",
     "type": "terminology",
     "difficulty": "medium",
     "answer": 2,
     "options": [
-      "Telomere",
-      "Centromere",
-      "Kinetochore",
-      "Chromatin"
+      "Telomere structure",
+      "Centromere region",
+      "Kinetochore complex",
+      "Chromatin fiber"
     ]
   },
   {
@@ -342,10 +342,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 0,
     "options": [
-      "Ends of the DNA molecule with repeated nucleotides.",
-      "Proteins that DNA wraps around.",
-      "The structure that connects sister chromatids.",
-      "Fibers that pull chromosomes apart."
+      "Protective DNA ends with repeats.",
+      "Core proteins for DNA winding.",
+      "Attachment points for chromatids.",
+      "Fibers involved in separation."
     ]
   },
   {
@@ -354,10 +354,10 @@ const genBioQuestions = [
     "difficulty": "hard",
     "answer": 3,
     "options": [
-      "To initiate DNA replication.",
-      "To control gene expression.",
-      "To attach chromosomes to spindle fibers.",
-      "To protect chromosome ends from degradation and fusion."
+      "Initiating the DNA copying process.",
+      "Regulating specific gene activity.",
+      "Anchoring chromosomes to fibers.",
+      "Preventing chromosome end degradation/fusion."
     ]
   },
   {
@@ -366,10 +366,10 @@ const genBioQuestions = [
     "difficulty": "easy",
     "answer": 1,
     "options": [
-      "Repair",
-      "Division",
-      "Differentiation",
-      "Mutation"
+      "Damage Repair",
+      "Cell Division",
+      "Specialization",
+      "Genetic Mutation"
     ]
   },
   {
@@ -381,19 +381,19 @@ const genBioQuestions = [
       "Interphase, Mitosis, Cytokinesis",
       "Growth, Synthesis, Division",
       "Prophase, Metaphase, Anaphase",
-      "G1, S, G2"
+      "G1, Synthesis, G2 stages"
     ]
   },
   {
-    "question": "Which phase includes G1, S, and G2?",
+    "question": "Which major stage includes G1, S, and G2 phases?",
     "type": "classification",
     "difficulty": "easy",
     "answer": 2,
     "options": [
-      "Mitosis",
-      "Cytokinesis",
-      "Interphase",
-      "M Phase"
+      "Mitotic Phase",
+      "Cytokinesis Stage",
+      "Interphase Period",
+      "M Checkpoint"
     ]
   },
   {
@@ -409,15 +409,15 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "What happens during the G1 phase of Interphase?",
+    "question": "What primarily happens during the G1 phase of Interphase?",
     "type": "process",
     "difficulty": "medium",
     "answer": 0,
     "options": [
-      "Cell growth and increase in organelles",
-      "DNA replication",
-      "Preparation for mitosis, enzyme production",
-      "Nuclear division"
+      "Cell grows, organelles increase",
+      "Nuclear DNA is duplicated",
+      "Cell prepares for division",
+      "Nucleus divides into two"
     ]
   },
   {
@@ -426,10 +426,10 @@ const genBioQuestions = [
     "difficulty": "easy",
     "answer": 1,
     "options": [
-      "Cell growth",
-      "DNA synthesis (replication)",
-      "Cytoplasm division",
-      "Chromosome condensation"
+      "Significant cell enlargement",
+      "DNA synthesis/replication",
+      "Cytoplasmic content division",
+      "Chromosome coiling begins"
     ]
   },
   {
@@ -438,26 +438,26 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 2,
     "options": [
-      "DNA replication",
-      "Initial cell growth",
-      "Further growth, enzyme production, checkpoint",
-      "Separation of sister chromatids"
+      "Replication of all DNA",
+      "First stage of cell growth",
+      "Final growth, enzyme prep, checkpoint",
+      "Separation of duplicated chromosomes"
     ]
   },
   {
-    "question": "What process ensures daughter cells receive an exact copy of the parent's genetic material?",
+    "question": "What process ensures daughter cells get exact genetic copies?",
     "type": "process",
     "difficulty": "medium",
     "answer": 0,
     "options": [
-      "DNA replication during S phase",
-      "Cytokinesis",
-      "Chromosome condensation",
-      "Spindle fiber formation"
+      "Accurate DNA replication (S phase)",
+      "Division of cytoplasm (Cytokinesis)",
+      "Condensation into chromosomes",
+      "Formation of the spindle apparatus"
     ]
   },
   {
-    "question": "What is another term for Mitosis, referring specifically to nuclear division?",
+    "question": "What is another term for Mitosis, referring to nuclear division?",
     "type": "terminology",
     "difficulty": "medium",
     "answer": 1,
@@ -469,7 +469,7 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "Which phase of Mitosis is characterized by the condensation of chromosomes and the disappearance of the nucleolus?",
+    "question": "Which phase involves chromosome condensation and nucleolus disappearance?",
     "type": "mitosis_phases",
     "difficulty": "easy",
     "answer": 0,
@@ -481,7 +481,7 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "During which phase of Mitosis do chromosomes align at the cell's equator (metaphase plate)?",
+    "question": "During which phase do chromosomes align at the cell's equator?",
     "type": "mitosis_phases",
     "difficulty": "easy",
     "answer": 1,
@@ -493,7 +493,7 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "In which phase of Mitosis do sister chromatids separate and move to opposite poles?",
+    "question": "In which phase do sister chromatids separate to opposite poles?",
     "type": "mitosis_phases",
     "difficulty": "easy",
     "answer": 2,
@@ -510,10 +510,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 3,
     "options": [
-      "Chromosomes condense.",
-      "Chromosomes align at the equator.",
-      "Sister chromatids separate.",
-      "Nuclear envelope reforms, chromosomes decondense."
+      "Chromosomes become visible.",
+      "Chromosomes line up centrally.",
+      "Sister chromatids are pulled apart.",
+      "Nuclei reform, chromosomes uncoil."
     ]
   },
   {
@@ -522,10 +522,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 0,
     "options": [
-      "Centrioles (within the centrosome)",
-      "Kinetochores",
-      "Ribosomes",
-      "Cell wall"
+      "Centrioles/Centrosomes",
+      "Kinetochore proteins",
+      "Cellular ribosomes",
+      "Components of cell wall"
     ]
   },
   {
@@ -534,10 +534,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "From centrioles",
-      "Without centrioles (from microtubule organizing centers)",
-      "From the cell wall",
-      "From the nucleolus"
+      "Exclusively from centrioles",
+      "From microtubule organizing centers",
+      "Directly from the rigid cell wall",
+      "Originating near the nucleolus"
     ]
   },
   {
@@ -546,10 +546,10 @@ const genBioQuestions = [
     "difficulty": "hard",
     "answer": 2,
     "options": [
-      "Kinetochore",
-      "Centromere",
-      "Cohesin",
-      "Histone"
+      "Kinetochore complex",
+      "Centromeric DNA",
+      "Cohesin proteins",
+      "Histone octamer"
     ]
   },
   {
@@ -559,9 +559,9 @@ const genBioQuestions = [
     "answer": 0,
     "options": [
       "Division of the cytoplasm",
-      "Division of the nucleus",
-      "Replication of DNA",
-      "Condensation of chromosomes"
+      "Separation of the nucleus",
+      "Copying of genetic material",
+      "Coiling of chromosomes"
     ]
   },
   {
@@ -570,10 +570,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "Formation of a cell plate",
-      "Formation of a cleavage furrow by a contractile ring",
-      "Building a new cell wall",
-      "Splitting of the nucleus"
+      "By building a new cell plate.",
+      "Via cleavage furrow formation.",
+      "Through construction of a cell wall.",
+      "By nuclear envelope splitting."
     ]
   },
   {
@@ -582,10 +582,10 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 0,
     "options": [
-      "Formation of a cell plate from vesicles",
-      "Formation of a cleavage furrow",
-      "Constriction by actin fibers",
-      "Dissolving the middle lamella"
+      "By cell plate formation.",
+      "Through cleavage furrow pinching.",
+      "Via actin fiber constriction.",
+      "By dissolving shared wall layers."
     ]
   },
   {
@@ -594,22 +594,22 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 2,
     "options": [
-      "Low-wear areas like nerve tissue",
-      "Areas with slow growth",
-      "High-wear areas like skin or intestinal lining",
-      "Mature, non-growing tissues"
+      "Stable nerve tissues",
+      "Slow-growing bone areas",
+      "High-wear linings (skin, gut)",
+      "Mature muscle tissues"
     ]
   },
   {
-    "question": "Which cell type listed has the shortest life span/fastest replacement rate?",
+    "question": "Which cell type listed has the shortest life span/fastest replacement?",
     "type": "rate",
     "difficulty": "medium",
     "answer": 1,
     "options": [
-      "Liver cell",
-      "Internal lining of the intestine",
-      "Bone Cell",
-      "Skin Cell"
+      "Liver cell (hepatocyte)",
+      "Intestinal lining cell",
+      "Mature bone cell (osteocyte)",
+      "Epidermal skin cell"
     ]
   },
   {
@@ -618,14 +618,14 @@ const genBioQuestions = [
     "difficulty": "medium",
     "answer": 3,
     "options": [
-      "A phase of rapid division.",
-      "The phase before G1.",
-      "A checkpoint within Mitosis.",
-      "A non-dividing state where cells perform normal functions."
+      "A period of accelerated division.",
+      "The preparatory phase before G1.",
+      "A quality checkpoint during M phase.",
+      "A quiescent, non-dividing state."
     ]
   },
   {
-    "question": "Messages from nearby cells or remote parts of the body that regulate the cell cycle are classified as:",
+    "question": "Messages from nearby cells regulating the cycle are classified as:",
     "type": "regulation",
     "difficulty": "easy",
     "answer": 0,
@@ -637,7 +637,7 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "Cell-to-cell contact preventing further division is an example of:",
+    "question": "Cell-to-cell contact preventing further division exemplifies:",
     "type": "regulation",
     "difficulty": "medium",
     "answer": 2,
@@ -645,23 +645,23 @@ const genBioQuestions = [
       "Anchorage Dependence",
       "Chemical Signaling",
       "Contact Inhibition",
-      "Growth Factor Stimulation"
+      "Factor Stimulation"
     ]
   },
   {
-    "question": "The requirement for cells to be attached to a surface to divide is called:",
+    "question": "The requirement for cells to attach to a surface to divide is called:",
     "type": "regulation",
     "difficulty": "medium",
     "answer": 1,
     "options": [
       "Contact Inhibition",
       "Anchorage Dependence",
-      "Sporulation",
-      "Binary Fission"
+      "Sporulation Effect",
+      "Fission Requirement"
     ]
   },
   {
-    "question": "Molecules found within the cytoplasm that regulate the cell cycle are known as:",
+    "question": "Molecules within the cytoplasm regulating the cell cycle are:",
     "type": "regulation",
     "difficulty": "easy",
     "answer": 1,
@@ -669,11 +669,11 @@ const genBioQuestions = [
       "External Factors",
       "Internal Factors",
       "Growth Factors",
-      "Receptors"
+      "Surface Receptors"
     ]
   },
   {
-    "question": "Which internal factor transfers a phosphate group to accelerate or change a target molecule?",
+    "question": "Which internal factor transfers a phosphate group to activate targets?",
     "type": "regulation",
     "difficulty": "medium",
     "answer": 0,
@@ -685,7 +685,7 @@ const genBioQuestions = [
     ]
   },
   {
-    "question": "What group of proteins activates kinases and helps control the cell cycle, being rapidly destroyed at certain points?",
+    "question": "What group of proteins activates kinases and fluctuates during the cycle?",
     "type": "regulation",
     "difficulty": "medium",
     "answer": 1,
@@ -693,35 +693,35 @@ const genBioQuestions = [
       "Kinases",
       "Cyclins",
       "Erythropoietin",
-      "Receptors"
+      "Receptor proteins"
     ]
   },
   {
-    "question": "Which factor specifically stimulates the production of red blood cells?",
+    "question": "Which factor specifically stimulates red blood cell production?",
     "type": "regulation",
     "difficulty": "medium",
     "answer": 2,
     "options": [
-      "Growth Factors (general)",
-      "Platelets",
+      "General Growth Factors",
+      "Clotting Platelets",
       "Erythropoietin",
-      "Cyclins"
+      "Regulatory Cyclins"
     ]
   },
   {
-    "question": "Which factor stores a substance helpful for wound repair?",
+    "question": "Which factor stores a substance crucial for wound repair?",
     "type": "regulation",
     "difficulty": "medium",
     "answer": 3,
     "options": [
-      "Erythropoietin",
-      "Kinases",
-      "Cyclins",
-      "Platelets"
+      "Erythropoietin hormone",
+      "Kinase enzymes",
+      "Cyclin proteins",
+      "Blood Platelets"
     ]
   },
   {
-    "question": "The partnership between which two internal factors helps advance the cell cycle through different stages?",
+    "question": "The partnership between which two internal factors drives cycle progression?",
     "type": "regulation",
     "difficulty": "hard",
     "answer": 0,
@@ -729,7 +729,7 @@ const genBioQuestions = [
       "Kinases and Cyclins",
       "Platelets and Growth Factors",
       "Erythropoietin and Receptors",
-      "DNA and Histones"
+      "DNA Polymerase and Helicase"
     ]
   }
 ];
