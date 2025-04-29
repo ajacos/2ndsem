@@ -22,6 +22,10 @@ const prevButton = document.getElementById('prev-btn');
 const answerFeedback = document.getElementById('answer-feedback');
 const feedbackText = document.getElementById('feedback-text');
 const themeToggleBtn = document.getElementById('theme-toggle-btn');
+// Add UCsp, PE, and 21st Lit button variables
+const ucspBtn = document.getElementById('subject-ucsp');
+const peBtn = document.getElementById('subject-pe');
+const litBtn = document.getElementById('subject-21lit');
 
 // Game variables
 let currentQuestion = {};
@@ -47,9 +51,40 @@ const ANIMATION_SPEED = 500; // ms
 // Variables for tracking loaded subjects
 window.loadedSubjects = window.loadedSubjects || {};
 
+// Function to normalize question format
+function normalizeQuestionFormat(questions) {
+    return questions.map(q => {
+        // If the question uses correctAnswer (like in 21stLitQuestions.js)
+        if (q.correctAnswer !== undefined) {
+            return {
+                question: q.question,
+                options: q.choices,
+                answer: q.correctAnswer
+            };
+        }
+        return q;
+    });
+}
+
 // Check if questions are loaded properly when the DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded');
+    
+    // Load subject questions into the loadedSubjects object
+    if (typeof litQuestions !== 'undefined') {
+        window.loadedSubjects['21st Century Literature'] = normalizeQuestionFormat(litQuestions);
+        console.log('Loaded 21st Century Literature questions:', window.loadedSubjects['21st Century Literature'].length);
+    }
+    
+    if (typeof ucspQuestions !== 'undefined') {
+        window.loadedSubjects['UCSP'] = normalizeQuestionFormat(ucspQuestions);
+        console.log('Loaded UCSP questions:', window.loadedSubjects['UCSP'].length);
+    }
+    
+    if (typeof peQuestions !== 'undefined') {
+        window.loadedSubjects['PE'] = normalizeQuestionFormat(peQuestions);
+        console.log('Loaded PE questions:', window.loadedSubjects['PE'].length);
+    }
     
     // DRRR Button
     document.getElementById('subject-drrr').addEventListener('click', function() {
@@ -67,13 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // UCSP Button
-    document.getElementById('subject-ucsp').addEventListener('click', function() {
+    ucspBtn.addEventListener('click', function() {
         startGame('UCSP');
     });
     
     // PE Button
-    document.getElementById('subject-pe').addEventListener('click', function() {
+    peBtn.addEventListener('click', function() {
         startGame('PE');
+    });
+    
+    // 21st Lit Button
+    litBtn.addEventListener('click', function() {
+        startGame('21st Century Literature');
     });
     
     // Play again button
@@ -611,4 +651,64 @@ window.addEventListener('beforeunload', function(e) {
     const warningMessage = 'You are in the middle of a quiz. If you leave, your progress will be lost.';
     e.returnValue = warningMessage; // Standard for most browsers
     return warningMessage; // For some older browsers
-}); 
+});
+
+// Remove the following redundant arrays since they're now loaded from external files
+// PE Questions
+// const peQuestions = [
+//     // ... existing code ...
+// ];
+
+// 21st Century Literature Questions
+// const litQuestions = [
+//     {
+//         question: "What is the title of the short story by Noreen Capili where the protagonist meets a tikbalang named Senyor Blanco?",
+//         choices: ["Terra Faciella", "Tria Fata", "Tres Faciella", "Tri Facila"],
+//         answer: "Tria Fata"
+//     },
+//     {
+//         question: "What literary device is used when the author gives human characteristics to non-human objects or ideas?",
+//         choices: ["Metaphor", "Personification", "Allegory", "Simile"],
+//         answer: "Personification"
+//     },
+//     {
+//         question: "What is the name of the collection that includes the story 'Tria Fata'?",
+//         choices: ["Philippine Speculative Fiction", "Masquerade and Other Plays", "Songs of Enchantment", "A Field Guide to the Roads of Manila"],
+//         answer: "A Field Guide to the Roads of Manila"
+//     },
+//     {
+//         question: "Which Filipino mythological creature is featured prominently in the short story 'Tria Fata'?",
+//         choices: ["Kapre", "Aswang", "Tikbalang", "Manananggal"],
+//         answer: "Tikbalang"
+//     },
+//     {
+//         question: "What does Tria Fata mean?",
+//         choices: ["Three Faces", "Three Fates", "Triple Facade", "Three-Faced"],
+//         answer: "Three Fates"
+//     },
+//     {
+//         question: "In the story 'Tria Fata', what is the main character trying to do when she meets Senyor Blanco?",
+//         choices: ["Find her missing brother", "Get to a job interview", "Escape from a stalker", "Return home from work"],
+//         answer: "Get to a job interview"
+//     },
+//     {
+//         question: "What is contemporary Philippine speculative fiction often known for incorporating into its narratives?",
+//         choices: ["European folklore", "American pop culture", "Filipino mythology", "Classical Greek literature"],
+//         answer: "Filipino mythology"
+//     },
+//     {
+//         question: "What is the main theme explored in '21st Century Literature from the Philippines and the World'?",
+//         choices: ["Global warming", "Cultural identity", "Political revolution", "Animal rights"],
+//         answer: "Cultural identity"
+//     },
+//     {
+//         question: "Which of the following is a characteristic of 21st century Philippine literature?",
+//         choices: ["Focus solely on rural settings", "Exclusively written in Filipino languages", "Hybridization of local and global influences", "Avoidance of social issues"],
+//         answer: "Hybridization of local and global influences"
+//     },
+//     {
+//         question: "Which of these is NOT typically considered a subgenre of speculative fiction?",
+//         choices: ["Science fiction", "Fantasy", "Biography", "Horror"],
+//         answer: "Biography"
+//     }
+// ]; 
