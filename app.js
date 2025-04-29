@@ -22,10 +22,11 @@ const prevButton = document.getElementById('prev-btn');
 const answerFeedback = document.getElementById('answer-feedback');
 const feedbackText = document.getElementById('feedback-text');
 const themeToggleBtn = document.getElementById('theme-toggle-btn');
-// Add UCsp, PE, and 21st Lit button variables
+// Add UCsp, PE, 21st Lit, and Gen Bio button variables
 const ucspBtn = document.getElementById('subject-ucsp');
 const peBtn = document.getElementById('subject-pe');
 const litBtn = document.getElementById('subject-21lit');
+const genBioBtn = document.getElementById('subject-genbio');
 
 // Game variables
 let currentQuestion = {};
@@ -86,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Loaded PE questions:', window.loadedSubjects['PE'].length);
     }
     
+    if (typeof genBioQuestions !== 'undefined') {
+        window.loadedSubjects['Gen Bio'] = normalizeQuestionFormat(genBioQuestions);
+        console.log('Loaded Gen Bio questions:', window.loadedSubjects['Gen Bio'].length);
+    }
+    
     // DRRR Button
     document.getElementById('subject-drrr').addEventListener('click', function() {
         startGame('DRRR');
@@ -114,6 +120,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 21st Lit Button
     litBtn.addEventListener('click', function() {
         startGame('21st Century Literature');
+    });
+    
+    // Gen Bio Button
+    genBioBtn.addEventListener('click', function() {
+        startGame('Gen Bio');
     });
     
     // Play again button
