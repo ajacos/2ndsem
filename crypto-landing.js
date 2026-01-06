@@ -78,7 +78,7 @@ function updateCryptoPrices() {
         
         if (priceElement && changeElement) {
             // Simulate small price change
-            const currentPrice = parseFloat(priceElement.textContent.replace('$', '').replace(',', ''));
+            const currentPrice = parseFloat(priceElement.textContent.replace('$', '').replace(/,/g, ''));
             const change = (Math.random() - 0.5) * 0.02; // -1% to +1%
             const newPrice = currentPrice * (1 + change);
             const changePercent = (change * 100).toFixed(2);
@@ -86,6 +86,10 @@ function updateCryptoPrices() {
             // Update price with animation
             priceElement.style.transition = 'color 0.3s ease';
             priceElement.style.color = change > 0 ? '#10b981' : '#ef4444';
+            
+            // Format and update the price
+            const formattedPrice = '$' + newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            priceElement.textContent = formattedPrice;
             
             setTimeout(() => {
                 priceElement.style.color = '#f8fafc';
@@ -300,6 +304,9 @@ const statsObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat').forEach(stat => {
     statsObserver.observe(stat);
 });
+
+// Update copyright year dynamically
+document.getElementById('year').textContent = new Date().getFullYear();
 
 // Console log for development
 console.log('CryptoHub Landing Page Loaded Successfully! 🚀');
